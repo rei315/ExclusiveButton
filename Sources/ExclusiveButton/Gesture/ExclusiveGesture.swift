@@ -88,6 +88,6 @@ package class ExclusiveGesture: UIGestureRecognizer {
     guard let view else {
       return
     }
-    ExclusiveButtonAppearance.appearance.touchDown(view, hostingView)
+    ExclusiveButtonAppearance.appearance.touchDownAnimation(view, hostingView)
   }
 }
