@@ -9,8 +9,8 @@ import UIKit
 
 public struct ExclusiveButtonAppearance {
   public struct ExclusiveAppearance {
-    var touchDown: @MainActor @Sendable (UIView?) -> Void
-    var touchUpAnimation: @MainActor @Sendable (UIView?) -> Void
+    public var touchDown: @MainActor @Sendable (UIView?) -> Void
+    public var touchUpAnimation: @MainActor @Sendable (UIView?) -> Void
   }
   
   @MainActor public static var appearance: ExclusiveAppearance = ExclusiveAppearance(
