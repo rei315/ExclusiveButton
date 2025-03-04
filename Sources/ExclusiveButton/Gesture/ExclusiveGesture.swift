@@ -9,9 +9,6 @@ import UIKit
 
 package class ExclusiveGesture: UIGestureRecognizer {
   private let tapHandler: () -> Void
-
-  private let defaultStateViewAlpha: CGFloat = 1.0
-  private let activeStateViewAlpha: CGFloat = 0.2
   private var isTouchingContinuously = false
 
   package init(
