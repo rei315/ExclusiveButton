@@ -9,19 +9,19 @@ import UIKit
 
 public struct ExclusiveButtonAppearance {
   public struct ExclusiveAppearance {
-    public var touchDown: @MainActor @Sendable (UIView?) -> Void
-    public var touchUpAnimation: @MainActor @Sendable (UIView?) -> Void
+    public var touchDown: @MainActor @Sendable (_ wrapperView: UIView, _ hostingView: UIView) -> Void
+    public var touchUpAnimation: @MainActor @Sendable (_ wrapperView: UIView, _ hostingView: UIView) -> Void
   }
   
   @MainActor public static var appearance: ExclusiveAppearance = ExclusiveAppearance(
-    touchDown: { view in
+    touchDown: { wrapperView, _ in
       UIView.animate(withDuration: 0.01, delay: 0, options: .curveEaseOut) {
-        view?.alpha = 0.2
+        wrapperView.alpha = 0.2
       }
     },
-    touchUpAnimation: { view in
+    touchUpAnimation: { wrapperView, _ in
       UIView.animate(withDuration: 0.01, delay: 0, options: .curveEaseOut) {
-        view?.alpha = 1.0
+        wrapperView.alpha = 1.0
       }
     }
   )
