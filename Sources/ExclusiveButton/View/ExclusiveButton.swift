@@ -27,6 +27,7 @@ public struct ExclusiveButton<Content: View>: UIViewRepresentable {
     wrapperView.addHostingView(hostingView)
     let gesture = ExclusiveGesture(
       target: context.coordinator,
+      hostingView: hostingView,
       tapHandler: context.coordinator.action
     )
     gesture.delegate = context.coordinator

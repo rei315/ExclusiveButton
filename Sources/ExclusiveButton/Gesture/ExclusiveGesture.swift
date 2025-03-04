@@ -8,13 +8,16 @@
 import UIKit
 
 package class ExclusiveGesture: UIGestureRecognizer {
-  private let tapHandler: () -> Void
   private var isTouchingContinuously = false
+  private let hostingView: UIView
+  private let tapHandler: () -> Void
 
   package init(
     target: Any?,
+    hostingView: UIView,
     tapHandler: @escaping () -> Void
   ) {
+    self.hostingView = hostingView
     self.tapHandler = tapHandler
     super.init(target: target, action: nil)
   }
@@ -75,10 +78,16 @@ package class ExclusiveGesture: UIGestureRecognizer {
   }
 
   private func animateToDefaultState() {
-    ExclusiveButtonAppearance.appearance.touchUpAnimation(view)
+    guard let view else {
+      return
+    }
+    ExclusiveButtonAppearance.appearance.touchUpAnimation(view, hostingView)
   }
 
   private func animateToActiveState() {
-    ExclusiveButtonAppearance.appearance.touchDown(view)
+    guard let view else {
+      return
+    }
+    ExclusiveButtonAppearance.appearance.touchDown(view, hostingView)
   }
 }
