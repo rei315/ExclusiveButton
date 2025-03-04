@@ -11,6 +11,8 @@ public struct ExclusiveButtonAppearance {
   public struct ExclusiveAppearance {
     public var touchDown: @MainActor @Sendable (UIView?) -> Void
     public var touchUpAnimation: @MainActor @Sendable (UIView?) -> Void
+    
+    public var contentBackground: UIColor = .clear
   }
   
   @MainActor public static var appearance: ExclusiveAppearance = ExclusiveAppearance(

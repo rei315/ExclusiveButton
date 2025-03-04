@@ -14,7 +14,7 @@ public class ExclusiveWrapperView: UIView {
     super.init(frame: frame)
     isExclusiveTouch = true
     isUserInteractionEnabled = true
-    backgroundColor = .clear
+    backgroundColor = ExclusiveButtonAppearance.appearance.contentBackground
   }
 
   required init?(coder: NSCoder) {
